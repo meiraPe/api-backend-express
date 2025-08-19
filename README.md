@@ -27,6 +27,7 @@
 - Métodos http (GET, POST, PUT, PATCH, DELETE)
 - Como mudar o formato de importação/exportação de require para import (Adicionar no package.json a propriedade type: "module")
 - --watch (parametro para rodar um js em modo dev, que permite rodar novamente o script quando algum arquivo é alterado)
+- Router (Para que separar as rotas?)
 
 Sintaxe básica de uma rota de API
 
