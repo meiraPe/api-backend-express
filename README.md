@@ -28,6 +28,9 @@
 - Como mudar o formato de importação/exportação de require para import (Adicionar no package.json a propriedade type: "module")
 - --watch (parametro para rodar um js em modo dev, que permite rodar novamente o script quando algum arquivo é alterado)
 - Router (Para que separar as rotas?)
+- O que é um Padrão de Projeto?
+- O que é um e porque usar um ORM? (Prisma ORM)
+- Qual a diferença das Dependencias do projeto para as Dependencias Dev?
 
 Sintaxe básica de uma rota de API
 
@@ -38,3 +41,19 @@ app.post('/produto', (req, res) =>{
 metodo criar ou inserir: POST
 Rota ou endereço: /produto
 tipo de resposta: json
+
+
+## Comandos Prisma 
+
+- Instalação Prisma
+  - npm i prisma -D
+  - npm i prisma/client
+
+- Inicializar o Prisma
+  -npx prisma init
+
+- Gerar o model do prisma a partir de um BD existete
+  -npx prisma db pull
+
+- Gerar o BD a partir de um model do prisma
+  -npx prisma db psuh

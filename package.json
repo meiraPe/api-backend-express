@@ -18,7 +18,10 @@
   "author": "Pedro Meira",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^6.15.0",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.15.0"
   }
-
 }

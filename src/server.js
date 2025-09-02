@@ -1,19 +1,22 @@
-import express from 'express'
-import profileRouter from './routers/profileRouter.js'
-import productRouter from './routers/productRouter.js'
-import supplierRouter from './routers/supplierRouter.js'
-import carRouter from './routers/carRouter.js'
+import express from "express";
 
-const app = express()
-const port = 3000
+import profileRouter from "./routers/profileRouter.js";
+import productRouter from "./routers/productRouter.js";
+import supplierRouter from "./routers/supplierRouter.js";
+import carRouter from "./routers/carRouter.js";
+import costumerRouter from './routers/costumerRouter.js';
 
-app.use(express.json()) //Função usada para transformar os dados de string para objeto em JS
+const app = express();
+const port = 3000;
 
-app.use('/profile', profileRouter)
-app.use('/product', productRouter)
-app.use('/supplier', supplierRouter)
-app.use('/car', carRouter)
+app.use(express.json()); //Função usada para transformar os dados de string para objeto em JS
+
+app.use("/profile", profileRouter);
+app.use("/product", productRouter);
+app.use("/supplier", supplierRouter);
+app.use("/car", carRouter);
+app.use('/costumer', costumerRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`)
-})
+  console.log(`Example app listening on port http://localhost:${port}`);
+});

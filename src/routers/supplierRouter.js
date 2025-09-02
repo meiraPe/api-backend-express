@@ -1,44 +1,16 @@
-import express from 'express'
+import express from "express";
+import { createSupplierController } from "../controllers/supplier/createSupplierController.js";
+import { listSupplierController } from "../controllers/supplier/listSupplierController.js";
+import { getByIdSupplierController } from "../controllers/supplier/getByIdSupplierController.js";
+import { editSupplierController } from "../controllers/supplier/editSupplierController.js";
+import { deleteSupplierController } from "../controllers/supplier/deleteSupplierController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.post('/', (req, res) => {
-  const dados = req.body
-  console.log(dados)
-  
-  //criar dados do usuário
-  res.json({
-    message:'Fornecedor Criado Com Sucesso!',
-    supplier: dados
-  })
-})
+router.post("/", createSupplierController);
+router.get("/", listSupplierController);
+router.get("/:id", getByIdSupplierController);
+router.put("/", editSupplierController);
+router.delete("/", deleteSupplierController);
 
-//lista todos os fornecedores
-router.get('/', (req, res) => {
-  //consultar dados do produto
-  res.json({message: 'Fornecedor Consultado Com Sucesso!'})
-})
-
-//consulta um fornecedor específico
-router.get('/:id', (req, res) => {
-  const { id } = req.params.id
-  res.json({ message: `Fornecedor Consultado Com Sucesso! ID: ${id}` })
-})
-
-router.put('/', (req, res) => {
-  const dados = req.body
-  console.log(dados)
-
-  //editar dados do fornecedor
-  res.json({
-    message: 'Fornecedor Editado Com Sucesso!',
-    supplier: dados
-  })
-})
-
-router.delete('/', (req, res) => {
-  //deletar dados do fornecedor
-  res.json({message: 'Fornecedor Deletado Com Sucesso!'})
-})
-
-export default router
+export default router;

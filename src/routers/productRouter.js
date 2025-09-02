@@ -1,44 +1,22 @@
 import express from 'express'
+import { createProductController } from '../controllers/product/createProductController.js'
+import { listProductController } from '../controllers/product/listProductController.js'
+import { getByIdProductController } from '../controllers/product/getByIdProductController.js'
+import { editProductController } from '../controllers/product/editProductController.js'
+import { deleteProductController } from '../controllers/product/deleteProductController.js'
 
 const router = express.Router()
 
-router.post('/', (req, res) => {
-  const dados = req.body
-  console.log(dados)
-  
-  //criar dados do produto
-  res.json({
-    message:'Produto Criado Com Sucesso!',
-    product: dados
-  })
-})
+router.post('/', createProductController)
 
 //lista todos os profile
-router.get('/', (req, res) => {
-  //consultar dados do produto
-  res.json({message: 'Produto Consultado Com Sucesso!'})
-})
+router.get('/', listProductController)
 
 //consulta um produto específico
-router.get('/:id', (req, res) => {
-  const { id } = req.params.id
-  res.json({ message: `Produto Consultado Com Sucesso! ID: ${id}` })
-})
+router.get('/:id', getByIdProductController)
 
-router.put('/', (req, res) => {
-  const dados = req.body
-  console.log(dados)
+router.put('/', editProductController)
 
-  //editar dados do produto
-  res.json({
-    message: 'Produto Editado Com Sucesso!',
-    product: dados
-  })
-})
-
-router.delete('/', (req, res) => {
-  //deletar dados do produto
-  res.json({message: 'Produto Deletado Com Sucesso!'})
-})
+router.delete('/', deleteProductController)
 
 export default router

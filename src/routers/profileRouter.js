@@ -1,44 +1,16 @@
-import express from 'express'
+import express from "express";
+import { createProfileController } from "../controllers/profile/createProfileController.js";
+import { listProfileController } from "../controllers/profile/listProfileController.js";
+import { getByIdProfileController } from "../controllers/profile/getByIdProfileController.js";
+import { editProfileController } from "../controllers/profile/editProfileController.js";
+import { deleteProfileController } from "../controllers/profile/deleteProfileController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.post('/', (req, res) => {
-  const dados = req.body
-  console.log(dados)
-  
-  //criar dados do usuário
-  res.json({
-    message:'Perfil Criado Com Sucesso!',
-    profile: dados
-  })
-})
+router.post("/", createProfileController);
+router.get("/", listProfileController);
+router.get("/:id", getByIdProfileController);
+router.put("/", editProfileController);
+router.delete("/", deleteProfileController);
 
-//lista todos os profile
-router.get('/', (req, res) => {
-  //consultar dados do usuario
-  res.json({message: 'Perfil Consultado Com Sucesso!'})
-})
-
-//consulta um profile específico
-router.get('/:id', (req, res) => {
-  const { id } = req.params.id
-  res.json({ message: `Perfil Consultado Com Sucesso! ID: ${id}` })
-})
-
-router.put('/', (req, res) => {
-  const dados = req.body
-  console.log(dados)
-
-  //editar dados do usuário
-  res.json({
-    message: 'Perfil Editado Com Sucesso!',
-    profile: dados
-  })
-})
-
-router.delete('/', (req, res) => {
-  //deletar dados do usuário
-  res.json({message: 'Perfil Deletado Com Sucesso!'})
-})
-
-export default router
+export default router;
