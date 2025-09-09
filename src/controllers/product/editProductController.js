@@ -1,10 +1,14 @@
-export const editProductController = (req, res) => {
-  const dados = req.body
-  console.log(dados)
+import { update } from '../../models/productModel.js'
 
-  //editar dados do produto
-  res.json({
-    message: 'Produto Editado Com Sucesso!',
-    product: dados
-  })
+export const editProductController = async (req,res) => {
+    const id = req.params.id
+    const product = req.body
+
+    const result = await update(+id, product)
+
+    console.log('Foi feito um PUT em /produto')
+    res.json({ 
+        message: 'Usuário editado com sucesso!',
+        product: dados
+    })
 }

@@ -15,8 +15,8 @@ router.get('/', listProductController)
 //consulta um produto específico
 router.get('/:id', getByIdProductController)
 
-router.put('/', editProductController)
+router.put('/:id', editProductController)
 
-router.delete('/', deleteProductController)
+router.delete('/:id', deleteProductController)
 
 export default router

@@ -1,10 +1,14 @@
-export const editProfileController = (req, res) => {
-  const dados = req.body
-  console.log(dados)
+import { update } from '../../models/profileModel.js'
 
-  //editar dados do produto
-  res.json({
-    message: 'Usuário Editado Com Sucesso!',
-    product: dados
-  })
+export const editProfileController = async (req,res) => {
+    const id = req.params.id
+    const profile = req.body
+
+    const result = await update(+id, profile)
+
+    console.log('Foi feito um PUT em /produto')
+    res.json({ 
+        message: 'Usuário editado com sucesso!',
+        profile: dados
+    })
 }

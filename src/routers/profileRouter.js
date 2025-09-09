@@ -10,7 +10,7 @@ const router = express.Router();
 router.post("/", createProfileController);
 router.get("/", listProfileController);
 router.get("/:id", getByIdProfileController);
-router.put("/", editProfileController);
-router.delete("/", deleteProfileController);
+router.put("/:id", editProfileController);
+router.delete("/:id", deleteProfileController);
 
 export default router;

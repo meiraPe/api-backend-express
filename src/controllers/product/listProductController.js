@@ -1,4 +1,10 @@
-export const listProductController = (req, res) => {
-  //consultar dados do produto
-  res.json({message: 'Produto Consultado Com Sucesso!'})
+import { list } from "../../models/productModel.js"
+
+export const listProductController = async (req, res) => {
+  const result = await list()
+
+  res.json({
+    message: 'Produto Listado Com Sucesso!',
+    product: result
+  })
 }
