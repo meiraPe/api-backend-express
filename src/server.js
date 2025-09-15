@@ -5,10 +5,12 @@ import productRouter from "./routers/productRouter.js";
 import supplierRouter from "./routers/supplierRouter.js";
 import carRouter from "./routers/carRouter.js";
 import costumerRouter from './routers/costumerRouter.js';
+import cors from 'cors';
 
 const app = express();
-const port = 3000;
+const port = 3333;
 
+app.use(cors());
 app.use(express.json()); //Função usada para transformar os dados de string para objeto em JS
 
 app.use("/profile", profileRouter);
