@@ -8,4 +8,4 @@ export const loginController = async (req, res) => {
     // enviar o token para o cliente
 
     return
-}
+};
